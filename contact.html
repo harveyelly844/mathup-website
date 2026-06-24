@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Math-Up Uganda</title>
+<meta name="description" content="Get in touch with Math-Up Uganda via email, WhatsApp, LinkedIn, or the contact form.">
+<link rel="icon" type="image/jpeg" href="assets/logo.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a href="index.html" class="brand">
+      <img src="assets/mark-light.png" alt="Math-Up Uganda logo">
+      <span>MATH-UP</span>
+    </a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="seminars.html">Seminars</a>
+      <a href="contact.html" aria-current="page">Contact</a>
+      <a href="https://youtube.com/@math-up-ug?si=ETGRl-WPd6zsMFsB" target="_blank" rel="noopener" class="btn btn--primary">
+        Watch on YouTube <span class="tri tri--small"></span>
+      </a>
+    </nav>
+  </div>
+  <div class="nav-backdrop"></div>
+</header>
+
+<main>
+
+  <section class="page-header">
+    <div class="wrap">
+      <div class="eyebrow"><span class="tri tri--small"></span> GET IN TOUCH</div>
+      <h1 class="h1">Questions, ideas, or<br>just want to <em>say hi</em>?</h1>
+      <p class="lede" style="max-width: 48ch;">Whether it's about a seminar, a topic you want covered, or a partnership idea — reach out through whichever channel works for you.</p>
+    </div>
+  </section>
+
+  <section class="section-divider">
+    <div class="wrap">
+      <div class="grid grid--2" style="align-items: start;">
+
+        <div>
+          <span class="section-kicker">Send a message</span>
+          <h2 class="h2" style="margin-bottom: 1.5rem;">Fill in the form below.</h2>
+          <form class="contact-form" id="contact-form">
+            <div class="field">
+              <label for="name">Your name</label>
+              <input type="text" id="name" name="name" required placeholder="e.g. Sarah Namutebi">
+            </div>
+            <div class="field">
+              <label for="email">Your email</label>
+              <input type="email" id="email" name="email" required placeholder="you@example.com">
+            </div>
+            <div class="field">
+              <label for="topic">What's this about?</label>
+              <select id="topic" name="topic">
+                <option>A question about a seminar</option>
+                <option>Holiday tutoring enquiry</option>
+                <option>A topic suggestion for YouTube</option>
+                <option>Partnership or collaboration</option>
+                <option>Something else</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" required placeholder="Tell us what's on your mind..."></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary" id="submit-btn">Send message <span class="tri tri--small"></span></button>
+            <p class="form-status mono text-soft" id="form-status" style="display:none; margin-top: 1rem; font-size: 0.85rem;"></p>
+          </form>
+
+          <script>
+            (function () {
+              var form = document.getElementById('contact-form');
+              var btn  = document.getElementById('submit-btn');
+              var status = document.getElementById('form-status');
+
+              form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                btn.disabled = true;
+                btn.textContent = 'Sending…';
+                status.style.display = 'none';
+
+                var data = new FormData(form);
+
+                fetch('https://formspree.io/f/xwvdvbzb', {
+                  method: 'POST',
+                  body: data,
+                  headers: { 'Accept': 'application/json' }
+                })
+                .then(function (res) {
+                  if (res.ok) {
+                    form.reset();
+                    status.style.color = 'var(--ink)';
+                    status.textContent = '✓ Message sent — we\'ll get back to you soon.';
+                  } else {
+                    return res.json().then(function (json) {
+                      throw new Error(json.errors ? json.errors.map(function(e){ return e.message; }).join(', ') : 'Submission failed.');
+                    });
+                  }
+                })
+                .catch(function (err) {
+                  status.style.color = '#c0392b';
+                  status.textContent = '✗ ' + err.message + ' Please try again or email us directly.';
+                })
+                .finally(function () {
+                  btn.disabled = false;
+                  btn.innerHTML = 'Send message <span class="tri tri--small"></span>';
+                  status.style.display = 'block';
+                });
+              });
+            })();
+          </script>
+        </div>
+
+        <div>
+          <span class="section-kicker">Direct channels</span>
+          <h2 class="h2" style="margin-bottom: 1.5rem;">Prefer to reach out directly?</h2>
+          <div style="display:flex; flex-direction:column; gap:1rem;">
+            <a href="mailto:mathup.coo@gmail.com" class="card" style="display:flex; align-items:center; gap:1rem;">
+              <span class="tri"></span>
+              <div>
+                <h3 style="margin-bottom:0.2rem;">Email</h3>
+                <p class="mono" style="font-size:0.92rem;">mathup.coo@gmail.com</p>
+              </div>
+            </a>
+            <a href="https://wa.me/256707101061" target="_blank" rel="noopener" class="card" style="display:flex; align-items:center; gap:1rem;">
+              <span class="tri"></span>
+              <div>
+                <h3 style="margin-bottom:0.2rem;">WhatsApp</h3>
+                <p class="mono" style="font-size:0.92rem;">+256 707 101061</p>
+              </div>
+            </a>
+            <a href="https://www.linkedin.com/company/math-upug/" target="_blank" rel="noopener" class="card" style="display:flex; align-items:center; gap:1rem;">
+              <span class="tri"></span>
+              <div>
+                <h3 style="margin-bottom:0.2rem;">LinkedIn</h3>
+                <p class="mono" style="font-size:0.92rem;">Math-Up Uganda</p>
+              </div>
+            </a>
+            <a href="https://youtube.com/@math-up-ug?si=ETGRl-WPd6zsMFsB" target="_blank" rel="noopener" class="card" style="display:flex; align-items:center; gap:1rem;">
+              <span class="tri"></span>
+              <div>
+                <h3 style="margin-bottom:0.2rem;">YouTube</h3>
+                <p class="mono" style="font-size:0.92rem;">@math-up-ug</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer band-dark">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="assets/mark-dark.png" alt="Math-Up Uganda logo">
+          <span>MATH-UP</span>
+        </div>
+        <p class="ink-soft-on-dark" style="max-width: 32ch;">Free A-Level mathematics seminars and lessons for students across Uganda. Get your Math up!</p>
+      </div>
+      <div>
+        <h4>Site</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="seminars.html">Seminars</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <ul class="footer-links">
+          <li><a href="https://youtube.com/@math-up-ug?si=ETGRl-WPd6zsMFsB" target="_blank" rel="noopener">YouTube</a></li>
+          <li><a href="https://wa.me/256707101061" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="https://www.linkedin.com/company/math-upug/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="mailto:mathup.coo@gmail.com">mathup.coo@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Math-Up Uganda. Get your Math up!</span>
+      <span class="mono">Kampala, Uganda</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

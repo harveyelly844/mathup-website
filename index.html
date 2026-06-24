@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Math-Up Uganda — Get your Math up!</title>
+<meta name="description" content="Math-Up Uganda offers free A-Level mathematics and physics seminars on Zoom, YouTube lessons, and holiday tutoring for high school students across Uganda.">
+<link rel="icon" type="image/jpeg" href="assets/logo.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a href="index.html" class="brand">
+      <img src="assets/mark-light.png" alt="Math-Up Uganda logo">
+      <span>MATH-UP</span>
+    </a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="about.html">About</a>
+      <a href="seminars.html">Seminars</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://youtube.com/@math-up-ug?si=ETGRl-WPd6zsMFsB" target="_blank" rel="noopener" class="btn btn--primary">
+        Watch on YouTube <span class="tri tri--small"></span>
+      </a>
+    </nav>
+  </div>
+  <div class="nav-backdrop"></div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="wrap hero">
+      <div>
+        <div class="eyebrow"><span class="tri tri--small"></span> A-LEVEL MATHEMATICS &amp; PHYSICS &middot; UGANDA</div>
+        <h1 class="h1">Get your<br><em>Math</em> up.</h1>
+        <p class="lede">Free A-Level mathematics and physics seminars on Zoom, YouTube lessons, and holiday tutoring — built by Ugandan students who've sat the same exams you're preparing for.</p>
+        <div class="hero-actions">
+          <a href="seminars.html" class="btn btn--primary">See upcoming seminars</a>
+          <a href="https://youtube.com/@math-up-ug?si=ETGRl-WPd6zsMFsB" target="_blank" rel="noopener" class="btn btn--ghost">Watch free lessons</a>
+        </div>
+        <div class="stat-row mt-lg">
+          <div>
+            <div class="stat-num">A-Level</div>
+            <div class="stat-label">FULL SYLLABUS FOCUS</div>
+          </div>
+          <div>
+            <div class="stat-num">Free</div>
+            <div class="stat-label">SEMINARS &amp; CONTENT</div>
+          </div>
+          <div>
+            <div class="stat-num">Zoom</div>
+            <div class="stat-label">SEMINARS &amp; IN-PERSON AVAILABLE</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-figure">
+        <img src="assets/logo-full-light.png" alt="Math-Up logo mark">
+      </div>
+    </div>
+  </section>
+
+  <section class="section-divider">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="tri"></span>
+        <div>
+          <span class="section-kicker">Latest from YouTube</span>
+          <h2 class="h2">Watch a lesson right now.</h2>
+        </div>
+      </div>
+      <div class="video-embed" id="video-embed">
+        <button type="button" class="video-thumb" id="video-thumb" aria-label="Play latest Math-Up Uganda videos">
+          <span class="video-thumb__mark">
+            <span class="tri" style="border-top-color: var(--cream);"></span>
+          </span>
+          <span class="video-thumb__play">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </span>
+          <span class="video-thumb__label">Play our latest lessons</span>
+        </button>
+      </div>
+      <p class="center text-soft mono" style="font-size: 0.85rem; margin-top: 1rem;">
+        Always shows our most recent uploads &middot; <a href="https://youtube.com/@math-up-ug?si=ETGRl-WPd6zsMFsB" target="_blank" rel="noopener" class="text-red">see the full channel &rarr;</a>
+      </p>
+    </div>
+  </section>
+
+  <script>
+    // Click-to-load embed: we don't request youtube-nocookie.com until the
+    // visitor actually clicks play. This avoids Error 153 on page load
+    // (caused by missing/blocked referrers in many environments) and is
+    // also lighter and more privacy-respecting, since no request to
+    // YouTube happens until the visitor opts in.
+    (function () {
+      var thumb = document.getElementById('video-thumb');
+      var container = document.getElementById('video-embed');
+
+      thumb.addEventListener('click', function () {
+        var iframe = document.createElement('iframe');
+        iframe.src = 'https://www.youtube-nocookie.com/embed/videoseries?list=UUU_6KzQI5-oYAP6bk_rOh7Q&autoplay=1';
+        iframe.title = 'Math-Up Uganda — latest videos';
+        iframe.frameBorder = '0';
+        iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+        iframe.allowFullscreen = true;
+        container.innerHTML = '';
+        container.appendChild(iframe);
+      });
+    })();
+  </script>
+
+  <section class="section-divider">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="tri"></span>
+        <div>
+          <span class="section-kicker">What we do</span>
+          <h2 class="h2">Three ways to learn, one goal: A-Level results.</h2>
+        </div>
+      </div>
+      <div class="grid grid--3">
+        <div class="card">
+          <span class="tri"></span>
+          <h3>Live seminars on Zoom</h3>
+          <p>Free, scheduled sessions on A-Level mathematics and physics — walking through topics, past-paper techniques, and the questions students actually struggle with. Join from anywhere.</p>
+        </div>
+        <div class="card">
+          <span class="tri"></span>
+          <h3>YouTube lesson library</h3>
+          <p>Recorded lessons you can revisit anytime — for revision the night before a test, or to go back over a topic a second time at your own pace.</p>
+        </div>
+        <div class="card">
+          <span class="tri"></span>
+          <h3>Holiday tutoring</h3>
+          <p>Focused tutoring in mathematics and physics during school holidays, with other subjects available on request. Sessions can be held online or in person depending on your needs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-divider">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="tri"></span>
+        <div>
+          <span class="section-kicker">Why Math-Up</span>
+          <h2 class="h2">Math doesn't have to be the subject you dread.</h2>
+        </div>
+      </div>
+      <div class="grid grid--2">
+        <div>
+          <ul class="tri-list">
+            <li><span class="tri tri--small"></span><span>Content built specifically around what A-Level students in Uganda are actually examined on.</span></li>
+            <li><span class="tri tri--small"></span><span>No paywalls on the basics — the seminars and YouTube lessons are free to attend and watch.</span></li>
+            <li><span class="tri tri--small"></span><span>Explanations from people who recently sat the same papers, not just textbook recitals.</span></li>
+            <li><span class="tri tri--small"></span><span>A growing, student-run initiative — not a one-off tutoring gig.</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <p style="font-family: var(--display); font-size: 1.3rem; font-weight: 600; line-height: 1.35; color: var(--ink);">
+            "Get your Math up!" isn't just a tagline — it's the whole point. Whatever level you're starting from, the goal is to move it up.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band-dark">
+    <div class="wrap center">
+      <span class="section-kicker" style="color: rgba(253,254,248,0.55);">Ready when you are</span>
+      <h2 class="h2" style="margin-bottom: 1.25rem;">Join the next seminar, or start with a video tonight.</h2>
+      <p class="ink-soft-on-dark" style="max-width: 46ch; margin: 0 auto 2rem;">Whichever you choose, you're getting the same thing: clear, exam-focused A-Level Math, explained properly.</p>
+      <div class="hero-actions" style="justify-content: center;">
+        <a href="seminars.html" class="btn btn--primary">View seminars</a>
+        <a href="contact.html" class="btn btn--on-dark">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer band-dark">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="assets/mark-dark.png" alt="Math-Up Uganda logo">
+          <span>MATH-UP</span>
+        </div>
+        <p class="ink-soft-on-dark" style="max-width: 32ch;">Free A-Level mathematics seminars and lessons for students across Uganda. Get your Math up!</p>
+      </div>
+      <div>
+        <h4>Site</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="seminars.html">Seminars</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <ul class="footer-links">
+          <li><a href="https://youtube.com/@math-up-ug?si=ETGRl-WPd6zsMFsB" target="_blank" rel="noopener">YouTube</a></li>
+          <li><a href="https://wa.me/256707101061" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="https://www.linkedin.com/company/math-upug/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="mailto:mathup.coo@gmail.com">mathup.coo@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Math-Up Uganda. Get your Math up!</span>
+      <span class="mono">Kampala, Uganda</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
