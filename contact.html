@@ -41,7 +41,7 @@
     <div class="wrap">
       <div class="eyebrow"><span class="tri tri--small"></span> GET IN TOUCH</div>
       <h1 class="h1">Questions, ideas, or<br>just want to <em>say hi</em>?</h1>
-      <p class="lede" style="max-width: 48ch;">Whether it's about a seminar, a topic you want covered, or a partnership idea — reach out through whichever channel works for you.</p>
+      <p class="lede" style="max-width: 48ch;">Whether it's about tutoring, a seminar, a topic you want covered, or a partnership idea — reach out through whichever channel works for you.</p>
     </div>
   </section>
 
@@ -52,7 +52,7 @@
         <div>
           <span class="section-kicker">Send a message</span>
           <h2 class="h2" style="margin-bottom: 1.5rem;">Fill in the form below.</h2>
-          <form class="contact-form" id="contact-form">
+          <form class="contact-form">
             <div class="field">
               <label for="name">Your name</label>
               <input type="text" id="name" name="name" required placeholder="e.g. Sarah Namutebi">
@@ -64,8 +64,8 @@
             <div class="field">
               <label for="topic">What's this about?</label>
               <select id="topic" name="topic">
-                <option>A question about a seminar</option>
-                <option>Holiday tutoring enquiry</option>
+                <option>I'd like to arrange tutoring (holiday or in-person)</option>
+                <option>A question about a Zoom seminar</option>
                 <option>A topic suggestion for YouTube</option>
                 <option>Partnership or collaboration</option>
                 <option>Something else</option>
@@ -75,52 +75,9 @@
               <label for="message">Message</label>
               <textarea id="message" name="message" required placeholder="Tell us what's on your mind..."></textarea>
             </div>
-            <button type="submit" class="btn btn--primary" id="submit-btn">Send message <span class="tri tri--small"></span></button>
-            <p class="form-status mono text-soft" id="form-status" style="display:none; margin-top: 1rem; font-size: 0.85rem;"></p>
+            <button type="submit" class="btn btn--primary">Send message <span class="tri tri--small"></span></button>
+            <p class="form-status mono text-soft" style="display:none; margin-top: 1rem; font-size: 0.85rem;"></p>
           </form>
-
-          <script>
-            (function () {
-              var form = document.getElementById('contact-form');
-              var btn  = document.getElementById('submit-btn');
-              var status = document.getElementById('form-status');
-
-              form.addEventListener('submit', function (e) {
-                e.preventDefault();
-                btn.disabled = true;
-                btn.textContent = 'Sending…';
-                status.style.display = 'none';
-
-                var data = new FormData(form);
-
-                fetch('https://formspree.io/f/xwvdvbzb', {
-                  method: 'POST',
-                  body: data,
-                  headers: { 'Accept': 'application/json' }
-                })
-                .then(function (res) {
-                  if (res.ok) {
-                    form.reset();
-                    status.style.color = 'var(--ink)';
-                    status.textContent = '✓ Message sent — we\'ll get back to you soon.';
-                  } else {
-                    return res.json().then(function (json) {
-                      throw new Error(json.errors ? json.errors.map(function(e){ return e.message; }).join(', ') : 'Submission failed.');
-                    });
-                  }
-                })
-                .catch(function (err) {
-                  status.style.color = '#c0392b';
-                  status.textContent = '✗ ' + err.message + ' Please try again or email us directly.';
-                })
-                .finally(function () {
-                  btn.disabled = false;
-                  btn.innerHTML = 'Send message <span class="tri tri--small"></span>';
-                  status.style.display = 'block';
-                });
-              });
-            })();
-          </script>
         </div>
 
         <div>
@@ -172,7 +129,7 @@
           <img src="assets/mark-dark.png" alt="Math-Up Uganda logo">
           <span>MATH-UP</span>
         </div>
-        <p class="ink-soft-on-dark" style="max-width: 32ch;">Free A-Level mathematics seminars and lessons for students across Uganda. Get your Math up!</p>
+        <p class="ink-soft-on-dark" style="max-width: 32ch;">Free A-Level Math &amp; Physics seminars on Zoom, plus holiday and in-person tutoring, for students across Uganda. Get your Math up!</p>
       </div>
       <div>
         <h4>Site</h4>

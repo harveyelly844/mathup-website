@@ -569,6 +569,30 @@ section {
 }
 
 /* ============================================
+   Tutoring flier image
+   ============================================ */
+
+.tutoring-flier {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.tutoring-flier img {
+  width: 100%;
+  display: block;
+}
+
+@media (max-width: 860px) {
+  .tutoring-flier {
+    max-width: 320px;
+    margin-bottom: 1rem;
+  }
+}
+
+/* ============================================
    Video embed
    ============================================ */
 
